@@ -12,7 +12,7 @@ pythonscript-namebatch.py [-h] [--count N] [--diversity D]
 optional arguments:
   -h, --help     show this help message and exit
   --count N      Number of names to generate (default: 10)
-  --diversity D  Name diversity (0 = low [default], 1 = high)
+  --diversity D  Name diversity (0: low, 1: high) (default: 0)
 ```
 
 Examples:

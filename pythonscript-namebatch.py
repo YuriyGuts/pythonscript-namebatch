@@ -2,13 +2,12 @@
 """
 Generates spells to summon Benedict Cumberbatch.
 
-Usage:
-pythonscript-namebatch.py [-h] [--count N] [--diversity D]
+usage: pythonscript-namebatch.py [-h] [--count N] [--diversity D]
 
 optional arguments:
   -h, --help     show this help message and exit
   --count N      Number of names to generate (default: 10)
-  --diversity D  Name diversity (0 = low [default], 1 = high)
+  --diversity D  Name diversity (0: low, 1: high) (default: 0)
 """
 
 import argparse
@@ -38,12 +37,15 @@ def parse_command_line_args(args):
         metavar='D',
         required=False,
         type=int,
-        default=0,
-        choices=[0, 1],
-        help='Name diversity (0 = low [default], 1 = high)'
+        default=NameGenerator.DIVERSITY_LOW,
+        choices=[NameGenerator.DIVERSITY_LOW, NameGenerator.DIVERSITY_HIGH],
+        help='Name diversity ({}: low, {}: high) (default: {})'.format(
+            NameGenerator.DIVERSITY_LOW,
+            NameGenerator.DIVERSITY_HIGH,
+            NameGenerator.DIVERSITY_LOW,
+        )
     )
 
-    # Try parsing the arguments and fail properly if that didn't succeed.
     return parser.parse_args(args)
 
 
